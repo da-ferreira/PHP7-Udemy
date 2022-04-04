@@ -1,57 +1,55 @@
 
 Extensões:
+    Code Runner
+    DotENV
+    EditorConfig for VS Code
+    Path Intellisense
+    PHP Intelephense
+    PHP Debug
+    PHP DocBlocker
+    PHP Sniffer (reconhece erros e ajusta o código)
+    PHP Getters & Setters
 
-Code Runner
-DotENV
-EditorConfig for VS Code
-Path Intellisense
-PHP Intelephense
-PHP Debug
-PHP DocBlocker
-PHP Sniffer (reconhece erros e ajusta o código)
-PHP Getters & Setters
+    PHPUnit               (Teste automatizados)
+    PHPUnit Test Explorer (Teste automatizados)
 
-PHPUnit               (Teste automatizados)
-PHPUnit Test Explorer (Teste automatizados)
 
-Configurações:
+Configurações > settings.json:
+    // PHP
+    "editor.formatOnSave": true,
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/*/**": true,
+        "**/.hg/store/**": true,
+        "**/vendor/*/**": true
+    },
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
 
-CTRL + P > settings.json:
+    "php.validate.executablePath": "C:\\xampp\\php\\php.exe",
+    "php.suggest.basic": false,
+    "phpSniffer.run": "onSave",
+    "phpSniffer.autoDetect": true,
 
-// PHP
-"editor.formatOnSave": true,
-"files.watcherExclude": {
-    "**/.git/objects/**": true,
-    "**/.git/subtree-cache/**": true,
-    "**/node_modules/*/**": true,
-    "**/.hg/store/**": true,
-    "**/vendor/*/**": true
-},
-"files.exclude": {
-    "**/.classpath": true,
-    "**/.project": true,
-    "**/.settings": true,
-    "**/.factorypath": true
-},
+    "phpSniffer.standard": "PSR12",  // Here you can use another coding-style
 
-"php.validate.executablePath": "C:\\xampp\\php\\php.exe",
-"php.suggest.basic": false,
-"phpSniffer.run": "onSave",
-"phpSniffer.autoDetect": true,
+    "[php]": {
+        "editor.defaultFormatter": "wongjn.php-sniffer"
+    }
+    // Fim PHP
 
-"phpSniffer.standard": "PSR12",  // Here you can use another coding-style
 
-"[php]": {
-    "editor.defaultFormatter": "wongjn.php-sniffer"
-}
-// Fim PHP
+Confiurações do PHP Sniffer:
+    Baixar arquivo composer.phar: https://getcomposer.org
+    No terminal: php composer.phar require "squizlabs/php_codesniffer=*"
+
+    Por projeto, não global. A pasta vendor tem que estar na raíz da pasta do projeto.
 
 ------------------------------------------------------------------
 PSR-12 (Tipo pep8 do Python): https://www.php-fig.org/psr/psr-12/
 ------------------------------------------------------------------
-
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-baixar: https://getcomposer.org
-e depois no terminal
-php composer.phar require "squizlabs/php_codesniffer=*"  (por projeto, não global)
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -1,5 +1,6 @@
 <?php
 
+// Constantes, classes e funções declaradas neste arquivo pertencerão ao namespace App
 namespace App;
 
 class Main
@@ -42,3 +43,6 @@ class Main
         return $this;
     }
 }
+
+$test = new Main();
+$test->teste("Hello World!");
