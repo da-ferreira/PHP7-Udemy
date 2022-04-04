@@ -14,7 +14,6 @@ PHP Getters & Setters
 PHPUnit               (Teste automatizados)
 PHPUnit Test Explorer (Teste automatizados)
 
-
 Configurações:
 
 CTRL + P > settings.json:
@@ -46,13 +45,13 @@ CTRL + P > settings.json:
     "editor.defaultFormatter": "wongjn.php-sniffer"
 }
 // Fim PHP
-    
---    
-PSR-12: https://www.php-fig.org/psr/psr-12/
---
 
-++++++++
-baixar: https://getcomposer.org 
-e depois no terminal 
-php composer.phar require "squizlabs/php_codesniffer=*"
-++++++++
+------------------------------------------------------------------
+PSR-12 (Tipo pep8 do Python): https://www.php-fig.org/psr/psr-12/
+------------------------------------------------------------------
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+baixar: https://getcomposer.org
+e depois no terminal
+php composer.phar require "squizlabs/php_codesniffer=*"  (por projeto, não global)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
