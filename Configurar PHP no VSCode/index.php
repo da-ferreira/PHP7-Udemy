@@ -30,7 +30,7 @@ class Main
     /**
      * Get the value of name
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
