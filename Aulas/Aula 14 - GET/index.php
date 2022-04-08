@@ -3,28 +3,23 @@
 
 $nomesFuncionarios = ["Valentina", "Fernanda", "Pedro"  , "Lucas", "Marcos", "Joana"];
 
-$nome = filter_input(INPUT_POST, "nome_usuario", FILTER_SANITIZE_STRING);
-$email = filter_input(INPUT_POST, "email_usuario", FILTER_SANITIZE_STRING);
+$nome = filter_input(INPUT_GET, "nome_usuario", FILTER_UNSAFE_RAW);
+$email = filter_input(INPUT_GET, "email_usuario", FILTER_VALIDATE_EMAIL);
 
 $funcionario = "";
-$funcionarioCod = filter_input(INPUT_POST, "nome_funcionario", FILTER_SANITIZE_NUMBER_INT);
+$funcionarioCod = filter_input(INPUT_GET, "nome_funcionario", FILTER_SANITIZE_NUMBER_INT);
 
 if ($funcionarioCod) {
-    $funcionario = $nomesFuncionarios[$funcionarioCod];
+    $funcionario = $nomesFuncionarios[$funcionarioCod - 1];
 }
+
 
 /*
-if (isset($_POST['nome_usuario'])) {  // Se essa variável existe
-    $nome = $_POST['nome_usuario'];
-}
+$nome = $_GET['nome_usuario'];  // Pega a QueryString com a chave 'nome'
+$email = $_GET['email_usuario'];
+$funcionario = $_GET['nome_funcionario'];
 
-if (isset($_POST['email_usuario'])) {
-    $email = $_POST['email_usuario'];
-}
-
-if (isset($_POST['nome_funcionario'])) {
-    $funcionario = $nomesFuncionarios[$_POST['nome_funcionario']];
-}
+echo "{$nome}, {$email}";
 */
 
 ?>
@@ -65,7 +60,7 @@ if (isset($_POST['nome_funcionario'])) {
 <head>
 
 <body>
-    <form action="." method="POST">  <!-- Os dados são enviados para a mesma página -->
+    <form action="." method="GET">
         <ul>
             <li>Nome: <input type="text" name="nome_usuario" /></li>
             <li>Email: <input type="email" name="email_usuario" /></li>
@@ -76,7 +71,7 @@ if (isset($_POST['nome_funcionario'])) {
                     <?php
                     for ($i = 0; $i < count($nomesFuncionarios); $i++) {
                         ?>
-                        <option value="<?= $i; ?>"><?= $nomesFuncionarios[$i]; ?></option>
+                        <option value="<?= ($i + 1); ?>"><?= $nomesFuncionarios[$i]; ?></option>
                         <?php
                     }
                     ?>
@@ -84,6 +79,8 @@ if (isset($_POST['nome_funcionario'])) {
             </li>
             <li>
                 <button type="submit" name="botao_enviar">Cadastrar</button>
+                <a href="http://localhost/PHP - Udemy/Aula 14 - GET/" target="_self">Atualizar</a>
+
             </li>
         </ul>
     </form>
@@ -94,3 +91,4 @@ if (isset($_POST['nome_funcionario'])) {
     <p>Funcionário: <?= $funcionario; ?></p>
 </body>
 </html>
+
